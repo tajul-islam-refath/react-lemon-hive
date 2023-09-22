@@ -1,0 +1,38 @@
+// Mixins
+@import "./mixins";
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px,
+);
+
+// .container {
+//   max-width: 100%;
+//   margin-left: auto;
+//   margin-right: auto;
+//   @include break(xlarge) {
+//     max-width: 960px;
+//   }
+//   @include break(large) {
+//     max-width: 960px;
+//   }
+//   @include break(medium) {
+//     max-width: 960px;
+//   }
+//   @include break(small) {
+//     width: 720px;
+//   }
+// }
+
+.flex {
+  display: flex;
+  &--sb {
+    justify-content: space-between;
+  }
+  &--aic {
+    align-items: center;
+  }
+}
