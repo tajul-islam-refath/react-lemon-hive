@@ -7,7 +7,8 @@
   position: relative;
 
   &__content {
-    padding: 150px 0px;
+    padding-top: 150px;
+    padding-bottom: 240px;
   }
   &__text {
     h1 {
@@ -33,13 +34,13 @@
     }
     &--five {
       position: absolute;
-      bottom: -6px;
+      bottom: 80px;
       right: 718px;
       z-index: 11;
     }
     &--six {
       position: absolute;
-      bottom: 66px;
+      bottom: 140px;
       left: 434px;
       z-index: -11;
     }

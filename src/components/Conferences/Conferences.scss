@@ -1,0 +1,120 @@
+.conferences {
+  padding: 50px 0;
+  &__title {
+    text-align: center;
+    font-size: 48px;
+    font-weight: 700;
+  }
+  &__container {
+    width: 50%;
+    margin: auto;
+    display: block;
+    position: relative;
+    text-align: end;
+  }
+
+  &__list {
+    margin: 20px 0;
+    padding: 0;
+    display: inline-block;
+  }
+
+  &__item {
+    list-style: none;
+    margin: auto;
+    margin-left: 200px;
+    min-height: 50px;
+    border-left: 1px solid #cdcdcd;
+    padding: 0 0 50px 30px;
+    position: relative;
+    margin: 8px 0;
+    &--active {
+      border-left: 1px solid #ffc93e;
+      &::before {
+        background: #ffc93e !important;
+      }
+    }
+    &:last-child {
+      border-left: 0;
+    }
+    &::before {
+      position: absolute;
+      left: -25px;
+      top: -7px;
+      content: " ";
+      border: 8px solid rgba(255, 255, 255, 0.74);
+      border-radius: 500%;
+      background: #cdcdcd;
+      height: 48px;
+      width: 48px;
+      transition: all 500ms ease-in-out;
+    }
+    &:hover {
+      border-left-color: #ffc93e;
+      &::before {
+        border: 8px solid rgba(255, 255, 255, 0.74);
+        background: #ffc93e !important;
+        transition: all 1000ms ease-in-out;
+      }
+    }
+
+    .timestamp {
+      color: #617187;
+      font-size: 14px;
+      font-weight: 400;
+      text-align: left;
+      margin-left: 15px;
+      &--odd {
+        position: absolute;
+        left: -220px;
+        top: 9px;
+      }
+    }
+
+    .card {
+      width: 480px;
+      background: #f9fafb;
+      position: absolute;
+      text-align: left;
+      padding: 10px;
+      padding-left: 40px;
+      border: none;
+      border-radius: 8px;
+      border-top: 6px solid #cdcdcd;
+      position: relative;
+      box-shadow: 0px 4px 8px 0px #0000000f;
+
+      &:hover {
+        border-top-color: #ffc93e !important;
+        cursor: pointer;
+      }
+
+      &--even {
+        left: -548px;
+        top: -16px;
+      }
+
+      &--odd {
+        margin-left: 15px;
+      }
+
+      &__title {
+        font-size: 18px;
+        font-weight: 500;
+        color: #111d5e;
+        &::before {
+          position: absolute;
+          left: 11px;
+          top: 11px;
+          content: " ";
+          border: 8px solid rgba(255, 255, 255, 0.74);
+          border-radius: 500%;
+          background: #ffc93e;
+          height: 20px;
+          width: 20px;
+          transition: all 500ms ease-in-out;
+        }
+      }
+    }
+  }
+}
