@@ -1,11 +1,60 @@
 import React, { useState } from "react";
+import { useQuery, gql } from "@apollo/client";
+import { useParams } from "react-router-dom";
 import "./conference.scss";
 import vectorImg from "../../assets/Vector.png";
 
 import Organizer from "./Organizer";
 import Speakers from "./Speakers";
-import Schedule from "./Schedule";
 import Sponsors from "./Sponsors";
+import Schedules from "./Schedule";
+
+const GET_CONFERENCE = gql`
+  query GetConference($conferenceId: ID!) {
+    conference(id: $conferenceId) {
+      id
+      name
+      slogan
+      organizers {
+        name
+        about
+        image {
+          url
+        }
+      }
+      speakers {
+        name
+        about
+        image {
+          url
+        }
+        social {
+          twitter
+          linkedin
+          github
+          dribble
+        }
+      }
+      schedules {
+        day
+        intervals {
+          sessions {
+            type
+            begin
+            end
+          }
+        }
+      }
+      sponsors {
+        name
+        about
+        image {
+          url
+        }
+      }
+    }
+  }
+`;
 
 function Conference() {
   const [menuItems, setMenuItems] = useState([
@@ -28,6 +77,15 @@ function Conference() {
   ]);
   const [type, setType] = useState("organizer");
   const [draggedIndex, setDraggedIndex] = useState(-1);
+  const { id } = useParams();
+  const { loading, error, data } = useQuery(GET_CONFERENCE, {
+    variables: { conferenceId: id },
+  });
+
+  const conference = data.conference;
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
 
   const handleDragStart = (
     event: React.DragEvent<HTMLLIElement>,
@@ -59,12 +117,8 @@ function Conference() {
     <div className="conference">
       <div className="container">
         <div className="conference__header">
-          <h1 className="conference__title">Freezing Edge 2023</h1>
-          <h1 className="conference__subtitle">
-            {" "}
-            Lorem uis diam turpis quam id fermentum.In quis diam turpis quam id
-            fermentum.
-          </h1>
+          <h1 className="conference__title">{conference?.name}</h1>
+          <h1 className="conference__subtitle"> {conference.slogan}</h1>
         </div>
         <div className="conference__warper">
           <nav className="conference__navbar">
@@ -92,22 +146,22 @@ function Conference() {
           <div className="conference__body">
             {type === "organizer" && (
               <>
-                <Organizer />
+                <Organizer organizers={conference.organizers} />
               </>
             )}
             {type === "speakers" && (
               <>
-                <Speakers />
+                <Speakers speakers={conference.speakers} />
               </>
             )}
             {type === "schedule" && (
               <>
-                <Schedule />
+                <Schedules schedules={conference.schedules} />
               </>
             )}
             {type === "sponsors" && (
               <>
-                <Sponsors />
+                <Sponsors sponsors={conference.sponsors} />
               </>
             )}
           </div>

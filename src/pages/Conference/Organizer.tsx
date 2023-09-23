@@ -1,12 +1,21 @@
 import React from "react";
 import ListCard from "../../components/ListCard/ListCard";
-const Organizer = () => {
+
+interface Organizer {
+  name: string;
+  about: string;
+  image: {
+    url: string;
+  };
+}
+
+interface Props {
+  organizers: Organizer[];
+}
+const Organizer: React.FC<Props> = ({ organizers }) => {
+  console.log(organizers);
   return (
-    <>
-      <ListCard />
-      <ListCard />
-      <ListCard />
-    </>
+    <>{organizers && organizers.map((item) => <ListCard item={item} />)}</>
   );
 };
 
