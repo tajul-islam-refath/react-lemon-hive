@@ -33,11 +33,15 @@
     border-left: 1px solid #cdcdcd;
     padding: 0 0 50px 30px;
     position: relative;
-    margin: 8px 0;
+    margin: 67px 0;
     &--active {
-      border-left: 1px solid #ffc93e;
+      border-left: 1px solid #ffc93e !important;
       &::before {
-        background: #ffc93e !important;
+        border: 1px solid rgba(255, 201, 62) !important;
+        background: url("../../assets/storm.png") !important;
+        background-color: rgb(255, 201, 62, 0.2) !important;
+        background-repeat: no-repeat !important;
+        background-size: contain !important;
       }
     }
     &:last-child {
@@ -46,11 +50,14 @@
     &::before {
       position: absolute;
       left: -25px;
-      top: -7px;
+      top: -58px;
       content: " ";
-      border: 8px solid rgba(255, 255, 255, 0.74);
+      border: 1px solid rgba(205, 205, 205, 0.74);
       border-radius: 500%;
-      background: #cdcdcd;
+      background: url("../../assets/storm_2.png");
+      background-color: rgb(205, 205, 205, 0.1);
+      background-repeat: no-repeat;
+      background-size: contain;
       height: 48px;
       width: 48px;
       transition: all 500ms ease-in-out;
@@ -58,9 +65,12 @@
     &:hover {
       border-left-color: #ffc93e;
       &::before {
-        border: 8px solid rgba(255, 255, 255, 0.74);
-        background: #ffc93e !important;
         transition: all 1000ms ease-in-out;
+        border: 1px solid rgba(255, 201, 62) !important;
+        background: url("../../assets/storm.png") !important;
+        background-color: rgb(255, 201, 62, 0.2) !important;
+        background-repeat: no-repeat !important;
+        background-size: contain !important;
       }
     }
 
@@ -70,14 +80,17 @@
       font-weight: 400;
       text-align: left;
       margin-left: 15px;
+      position: absolute;
       &--odd {
-        position: absolute;
         left: -220px;
-        top: 9px;
+        top: -38px;
         @include break(xsmall) {
           left: 31px;
-          top: -22px;
+          top: -40px;
         }
+      }
+      &--even {
+        top: -47px;
       }
     }
 
@@ -103,7 +116,7 @@
 
       &--even {
         left: -548px;
-        top: -16px;
+        top: -42px;
         @include break(xsmall) {
           left: 15px;
           top: 0px;
@@ -112,6 +125,10 @@
 
       &--odd {
         margin-left: 15px;
+        top: -38px;
+        @include break(xsmall) {
+          top: -6px;
+        }
       }
 
       &__title {
