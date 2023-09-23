@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import "./NavBar.scss";
 import logo from "../../assets/React.png";
 
@@ -25,7 +26,10 @@ const NavBar: React.FC = () => {
   return (
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="container flex flex--sb flex--aic">
-        <img className="navbar__logo" src={logo} alt="" />
+        <NavLink to="/">
+          <img className="navbar__logo" src={logo} alt="" />
+        </NavLink>
+
         <ul
           className={`navbar__list flex ${
             navShown ? "navbar__list--active" : ""

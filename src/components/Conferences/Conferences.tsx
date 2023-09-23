@@ -8,7 +8,7 @@ const Conferences = () => {
       <div className="conferences__container">
         <ul className="tl conferences__list">
           <li className="conferences__item conferences__item--active">
-            <Link to={`/conference/${1}`}>
+            <Link to={`/conference/${1}/organizer`}>
               <div className="timestamp timestamp--even">
                 02 September, 2023
               </div>
@@ -21,7 +21,7 @@ const Conferences = () => {
             </Link>
           </li>
           <li className="conferences__item">
-            <Link to={`/conference/${2}`}>
+            <Link to={`/conference/${2}/organizer`}>
               <div className="timestamp timestamp--odd">02 September, 2023</div>
               <div className="card card--odd">
                 <h4 className="card__title">Design systems for beginners</h4>
@@ -32,7 +32,7 @@ const Conferences = () => {
             </Link>
           </li>
           <li className="conferences__item ">
-            <Link to={`/conference/${3}`}>
+            <Link to={`/conference/${3}/organizer`}>
               <div className="timestamp timestamp--even">
                 02 September, 2023
               </div>
@@ -47,7 +47,7 @@ const Conferences = () => {
             </Link>
           </li>
           <li className="conferences__item">
-            <Link to={`/conference/${4}`}>
+            <Link to={`/conference/${4}/organizer`}>
               <div className="timestamp timestamp--odd">03 September, 2023</div>
               <div className="card card--odd">
                 <h4 className="card__title">
@@ -60,7 +60,7 @@ const Conferences = () => {
             </Link>
           </li>
           <li className="conferences__item ">
-            <Link to={`/conference/${5}`}>
+            <Link to={`/conference/${5}/organizer`}>
               <div className="timestamp timestamp--even">
                 03 September, 2023
               </div>

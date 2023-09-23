@@ -1,5 +1,6 @@
 .conference {
   padding-top: 130px;
+  padding-bottom: 30px;
   &__title {
     font-size: 48px;
     font-weight: 700;
@@ -31,9 +32,14 @@
     padding: 8px;
     display: flex;
     align-items: center;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+
     &--active {
       background-color: #ffc93e;
       box-shadow: 0px 10px 20px 0px #a1a1a140;
+      a {
+        color: #fff;
+      }
     }
     &--icon {
       background-color: #fffcf6;
@@ -44,14 +50,32 @@
       justify-content: center;
       align-items: center;
     }
+    &:hover {
+      background-color: #ffc93e;
+      box-shadow: 0px 10px 20px 0px #a1a1a140;
+      a {
+        color: #fff;
+      }
+    }
+  }
+  .dragging {
+    /* Styles for the dragged element */
+    opacity: 0.7; /* Reduce opacity while dragging */
+    transform: scale(1.05); /* Scale up slightly while dragging */
   }
   &__link {
     margin-left: 30px;
+    margin-bottom: 0;
     color: #000;
     font-size: 20px;
     font-weight: 700;
-    &--active {
-      color: #fff;
-    }
+  }
+
+  &__body {
+    margin-left: 20px;
+    background: #f9fafb;
+    width: 100%;
+    border-radius: 8px;
+    padding: 30px;
   }
 }
